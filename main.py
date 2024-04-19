@@ -1,6 +1,7 @@
 from step1_star_to_ip import random_ip
 from step2_ip_to_int import dataset_ip_to_int
 from step3_set_country_code import set_country_code
+from step4_set_gps_by_code import set_gps_data
 
 
 if __name__=="__main__":
@@ -29,3 +30,6 @@ if __name__=="__main__":
     file = "./outputs/step2_ip_to_int.csv"
     file_ipv4 = "./outputs/step2-2_ipv4.csv"
     set_country_code(file, file_ipv4)
+    
+    file = "./outputs/step3_country_code.csv"
+    set_gps_data(file)
