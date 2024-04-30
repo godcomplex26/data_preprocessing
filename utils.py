@@ -27,7 +27,20 @@ def detect_encoding(file_path):
         # confidence = result['confidence']
         # print(f"Detected encoding: {encoding} (Confidence: {confidence})")
         return encoding
-    
+
+
+def parse_datetime(row):
+    year = int(row[0])
+    month = int(row[1])
+    day = int(row[2])
+    time_str = str("{:06d}".format(row[3]))
+    hour = int(time_str[:2])
+    minute = int(time_str[2:4])
+    second = int(time_str[4:])
+    return datetime(year, month, day, hour, minute, second)
+
 
 if __name__=="__main__":
-    print(detect_encoding('./Raw_DATA/2018_mal_data.csv'))
+    # print(detect_encoding('./Raw_DATA/2018_mal_data.csv'))
+    row = ["2020", "1", "23", "160538"]
+    print(parse_datetime(row))

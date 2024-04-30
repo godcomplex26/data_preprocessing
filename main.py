@@ -2,10 +2,11 @@ from step1_star_to_ip import random_ip
 from step2_ip_to_int import dataset_ip_to_int
 from step3_set_country_code import set_country_code
 from step4_set_gps_by_code import set_gps_data
+from step5_datetime import change_datetime
 from utils import measure_time
 
 step1 = {
-    "file": "./Raw_Data/2018_mal_data.csv",
+    "file": "./Raw_Data/KIS_KIS00000000000000006_20201110000000.csv",
     "column": "IP주소"
     }
 
@@ -39,6 +40,10 @@ step4 = {
     "file": "./outputs/step3_country_code.csv"
 }
 
+step5 = {
+    "file": "./outputs/step4_set_gps.csv"
+}
+
 @measure_time
 def run_all():
     random_ip(step1["file"], step1["column"])
@@ -47,6 +52,8 @@ def run_all():
     dataset_ip_to_int(step2_2["file"], step2_2["column"], step2_2["new_column"], step2_2["output"])
     set_country_code(step3["file"], step3["file_ipv4"])
     set_gps_data(step4["file"])
+    change_datetime(step5["file"])
 
 if __name__=="__main__":
-    run_all()
+    change_datetime(step5["file"])
+    # run_all()
